@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+		<groupId>fi.samlink.common</groupId>
+		<artifactId>common-parent</artifactId>
+		<version>25</version>
+	</parent>
+
+    <groupId>fi.samlink.ws.payment</groupId>
+    <artifactId>Rova-client</artifactId>
+    <version>0.9-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>Rova-client</name>
+    <url>http://maven.apache.org</url>
+    <!-- Just testing -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- name with version number used in zip packages and endpoints -->
+        <name>Rova</name>
+        <!-- name used in filenames -->
+        <name-in-file>Rova</name-in-file>
+    </properties> 
+
+	<scm>
+		<connection>scm:git:git@gitlab.saminet.fi:Maksut-tiimi/Rova-client.git</connection>
+		<developerConnection>scm:git:git@gitlab.saminet.fi:Maksut-tiimi/Rova-client.git</developerConnection>
+		<url>git@gitlab.saminet.fi:Maksut-tiimi/Rova-client.git</url>
+		<tag>HEAD</tag>
+	</scm>
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- Generates source code from WSDL and XSD files -->
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-codegen-plugin</artifactId>
+                <executions>
+                    <execution>
+                    	<id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <wsdlOptions>
+                                <wsdlOption>
+                                    <bindingFiles>
+                                        <bindingFile>${project.basedir}/src/main/resources/${name}/XMLSchemas/samlink-bindings.xml</bindingFile>
+                                    </bindingFiles>                                    
+                                    <wsdl>${project.basedir}/src/main/resources/${name}/WSDLs/RovaService.wsdl</wsdl>
+                                </wsdlOption>
+                            </wsdlOptions>
+                        </configuration>
+                        <goals>
+                            <goal>wsdl2java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+	
+	<dependencies>
+			<dependency>
+				<groupId>fi.samlink.common</groupId>
+				<artifactId>domain-common</artifactId>
+				<version>4.1</version>
+			</dependency>
+	</dependencies>
+
+</project>

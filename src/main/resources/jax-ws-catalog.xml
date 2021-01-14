@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+	<system systemId="../../CommonV3/Interfaces/XMLSchemas/BaseTypes-v3.xsd" uri="classpath:/CommonV3/Interfaces/XMLSchemas/BaseTypes-v3.xsd" />
+</catalog>

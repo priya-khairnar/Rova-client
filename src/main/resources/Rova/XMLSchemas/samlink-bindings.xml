@@ -1,0 +1,15 @@
+<bindings version="2.1" 
+	xmlns="http://java.sun.com/xml/ns/jaxb" 
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+
+    <globalBindings generateElementProperty="false">
+        <!-- Use Samlink's Date and Timestamp instead of XMLGregorianCalendar -->
+        <xjc:javaType name="fi.samlink.common.domain.type.Date" xmlType="xs:date"
+            adapter="fi.samlink.common.domain.type.Date.DateAdapter" />
+        <xjc:javaType name="fi.samlink.common.domain.type.Timestamp" xmlType="xs:dateTime"
+            adapter="fi.samlink.common.domain.type.Timestamp.TimestampAdapter" />
+    </globalBindings>
+</bindings>
+

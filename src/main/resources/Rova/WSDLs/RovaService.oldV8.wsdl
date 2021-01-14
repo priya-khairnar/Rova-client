@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://schemas/shb.rova/service/verify/transaction/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="RovaService" targetNamespace="http://schemas/shb.rova/service/verify/transaction/v1">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas/shb.rova/service/verify/transaction/v1" elementFormDefault="unqualified" targetNamespace="http://schemas/shb.rova/service/verify/transaction/v1" version="1.0">
+<xs:element name="deleteTransaction" type="tns:deleteTransaction"></xs:element>
+<xs:element name="deleteTransactionResponse" type="tns:deleteTransactionResponse"></xs:element>
+<xs:element name="signTransaction" type="tns:signTransaction"></xs:element>
+<xs:element name="signTransactionResponse" type="tns:signTransactionResponse"></xs:element>
+<xs:element name="verifyTransaction" type="tns:verifyTransaction"></xs:element>
+<xs:element name="verifyTransactionResponse" type="tns:verifyTransactionResponse"></xs:element>
+<xs:complexType name="signTransaction">
+    <xs:sequence>
+      <xs:element name="signInfo" type="tns:signInfo"></xs:element>
+      <xs:element name="sessionInfo" type="tns:sessionInfo"></xs:element>
+      <xs:element name="customerInfo" type="tns:customerInfo"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="signInfo">
+    <xs:sequence>
+      <xs:element name="dlvySystRefr" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="CfrmMeth" type="xs:string"></xs:element>
+      <xs:element name="dlvySrceSwNm" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="sessionInfo">
+    <xs:sequence>
+      <xs:element name="uasId" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="effTmstp" type="xs:long"></xs:element>
+      <xs:element minOccurs="0" name="baseAuthScheme" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="strengthAuthScheme" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="userAgent" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="logonTime" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="agentOS" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="agentBrowser" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="ipAdressAgent" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="actSession" type="xs:int"></xs:element>
+      <xs:element minOccurs="0" name="pspTpp" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="customerInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="acctBal" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="contDtlsChgDt" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="natRegChngDt" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="userIpCreDt" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="signTransactionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="approved" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="verifyTransaction">
+    <xs:sequence>
+      <xs:element name="transactionInfo" type="tns:transactionInfo"></xs:element>
+      <xs:element name="sessionInfo" type="tns:sessionInfo"></xs:element>
+      <xs:element name="customerInfo" type="tns:customerInfo"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="transactionInfo">
+    <xs:sequence>
+      <xs:element name="isoCountryCode" type="xs:string"></xs:element>
+      <xs:element name="txnExtSrce" type="xs:string"></xs:element>
+      <xs:element name="dlvySysTrEfr" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="userIpIdFr" type="xs:long"></xs:element>
+      <xs:element minOccurs="0" name="userIPSecIdfr" type="xs:string"></xs:element>
+      <xs:element name="dlvySrceSwNm" type="xs:string"></xs:element>
+      <xs:element name="pymtTp" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="custIpIdFr" type="xs:long"></xs:element>
+      <xs:element minOccurs="0" name="custIPSecIdfr" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="sndByIpIdFr" type="xs:long"></xs:element>
+      <xs:element minOccurs="0" name="sndByIPSecIdfr" type="xs:string"></xs:element>
+      <xs:element name="sndAcctNbr" type="xs:string"></xs:element>
+      <xs:element name="sndAcctIsoCurrCd" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="sndAcctNatBnkId" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="sndAccBic" type="xs:string"></xs:element>
+      <xs:element name="sndAcctIsoCntryCd" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="sndTx" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="sndAcctCredt" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="recvByIpIdFr" type="xs:long"></xs:element>
+      <xs:element minOccurs="0" name="recvByIPSecIdfr" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="recvAcctNbr" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="recvAcctIsoCurrCd" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="recvAcctNatBnkId" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="recvAccBic" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="recvAcctIsoCntryCd" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="recvAcctCredt" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="freeTx" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="recptNm" type="xs:string"></xs:element>
+      <xs:element name="mnTrInstrDate" type="xs:string"></xs:element>
+      <xs:element name="mnTrInstrAmt" type="xs:decimal"></xs:element>
+      <xs:element name="isoCurrCode" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="amtBaseCurr" type="xs:decimal"></xs:element>
+      <xs:element minOccurs="0" name="avalAmtAcct" type="xs:decimal"></xs:element>
+      <xs:element minOccurs="0" name="mndCreDt" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="stepupYN" type="xs:string"></xs:element>
+      <xs:element name="ownMndYN" type="xs:string"></xs:element>
+      <xs:element name="ownAcctYN" type="xs:string"></xs:element>
+      <xs:element name="holdYN" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="cutoffTm" type="xs:string"></xs:element>
+      <xs:element name="ipTp" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="verifyTransactionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="transactionStatus" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="deleteTransaction">
+    <xs:sequence>
+      <xs:element name="deleteInfo" type="tns:deleteInfo"></xs:element>
+      <xs:element name="sessionInfo" type="tns:sessionInfo"></xs:element>
+      <xs:element name="customerInfo" type="tns:customerInfo"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="deleteInfo">
+    <xs:sequence>
+      <xs:element name="dlvySystRefr" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="CUSTIPIDFR" type="xs:long"></xs:element>
+      <xs:element name="dlvySrceSwNm" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="deleteTransactionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="success" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="signTransactionResponse">
+    <wsdl:part element="tns:signTransactionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="signTransaction">
+    <wsdl:part element="tns:signTransaction" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="verifyTransaction">
+    <wsdl:part element="tns:verifyTransaction" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="verifyTransactionResponse">
+    <wsdl:part element="tns:verifyTransactionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteTransaction">
+    <wsdl:part element="tns:deleteTransaction" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteTransactionResponse">
+    <wsdl:part element="tns:deleteTransactionResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="RovaResourceImpl">
+    <wsdl:operation name="signTransaction">
+      <wsdl:input message="tns:signTransaction" name="signTransaction">
+    </wsdl:input>
+      <wsdl:output message="tns:signTransactionResponse" name="signTransactionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyTransaction">
+      <wsdl:input message="tns:verifyTransaction" name="verifyTransaction">
+    </wsdl:input>
+      <wsdl:output message="tns:verifyTransactionResponse" name="verifyTransactionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTransaction">
+      <wsdl:input message="tns:deleteTransaction" name="deleteTransaction">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteTransactionResponse" name="deleteTransactionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RovaServiceSoapBinding" type="tns:RovaResourceImpl">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="signTransaction">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="signTransaction">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="signTransactionResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifyTransaction">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="verifyTransaction">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="verifyTransactionResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTransaction">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="deleteTransaction">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="deleteTransactionResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RovaService">
+    <wsdl:port binding="tns:RovaServiceSoapBinding" name="RovaServicePort">
+      <soap:address location="http://branchft.shbdev.shb.biz/rovaa/rova/ws/ROVAService/v1"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
